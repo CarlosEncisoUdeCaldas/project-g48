@@ -1,0 +1,11 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(57, 53, 53);
+    color: whitesmoke;
+    text-align: center;
+    font-size: 25px;
+}
+
+.saludo:hover {
+    color: aqua;
+}
