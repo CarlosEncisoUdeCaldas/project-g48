@@ -14,7 +14,7 @@ const IndexApp = () => {
         <p>Este es otro elemento HTML</p>
         <Saludo nombre="Carlos" apellido="Lopez" edad={ 30 } /> */}
 
-        <Contador value={ 0 } />
+        <Contador value={0} />
     </>
   );
 };

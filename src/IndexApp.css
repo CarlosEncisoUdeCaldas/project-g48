@@ -9,3 +9,9 @@ body {
 .saludo:hover {
     color: aqua;
 }
+
+button {
+    font-size: 25px;
+    padding: 10px;
+    margin: 5px;
+}
