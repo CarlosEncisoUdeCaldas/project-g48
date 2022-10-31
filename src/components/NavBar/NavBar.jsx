@@ -1,3 +1,4 @@
+import Contador from "../Contador/Contador";
 import Saludo from "../Saludo/Saludo";
 
 const NavBar = () => {
@@ -7,12 +8,14 @@ const NavBar = () => {
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href = { <Saludo/> } >
-                Saludo
-              </a>
+              <a className="nav-link" href = '/saludo' >
+                <i className="bi bi-house" style={{ margin: '5px' }}></i>
+                Home
+              </a>  
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href= '/contador'>
+              <i className="bi bi-plus-slash-minus" style={{ margin: '5px' }}></i>
                 Contador
               </a>
             </li>

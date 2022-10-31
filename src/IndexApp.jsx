@@ -10,12 +10,7 @@ const IndexApp = () => {
 
   return (
     <>
-        {/* <h1 className="saludo"> Hola Mundo, esto es {titulo} </h1>
-        <p>Prueba de fragmento</p>
-        <p>Este es otro elemento HTML</p>
-        <Saludo nombre="Carlos" apellido="Lopez" edad={ 30 } /> */}
         <NavBar />
-        <Contador value={0} />
     </>
   );
 };
