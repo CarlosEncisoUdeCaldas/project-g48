@@ -27,10 +27,11 @@ const Contador = ({ value }) => {
     <>
       <h1>Contador</h1>
       <p> {contadora} </p>
-      <button type="button" name="adicionar" id="adicionar" onClick={handleAdd}>
+      <button className="btn btn-primary" type="button" name="adicionar" id="adicionar" onClick={handleAdd}>
         + 1
       </button>
       <button
+        className="btn btn-success"
         type="button"
         name="substraccion"
         id="substraccion"
@@ -38,7 +39,7 @@ const Contador = ({ value }) => {
       >
         - 1
       </button>
-      <button type="button" name="reset" id="reset" onClick={handleReset}>
+      <button className="btn btn-secondary" type="button" name="reset" id="reset" onClick={handleReset}>
         Reset
       </button>
       <p> Duplicado del contador { contadora * 2 } </p>

@@ -1,6 +1,7 @@
-import Contador from "./Contador/Contador";
+import Contador from "./components/Contador/Contador";
 import "./IndexApp.css";
-import Saludo from "./Saludo/Saludo";
+import Saludo from "./components/Saludo/Saludo";
+import NavBar from "./components/NavBar/NavBar";
 
 const IndexApp = () => {
   //en este espacio antes del return se puede declarar todo tipo de dato o funciones JavaScript y usarlas
@@ -13,7 +14,7 @@ const IndexApp = () => {
         <p>Prueba de fragmento</p>
         <p>Este es otro elemento HTML</p>
         <Saludo nombre="Carlos" apellido="Lopez" edad={ 30 } /> */}
-
+        <NavBar />
         <Contador value={0} />
     </>
   );
