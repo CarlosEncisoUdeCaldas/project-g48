@@ -1,12 +1,11 @@
 import PropTypes from "prop-types"
-import NavBar from "../NavBar/NavBar";
 
 const Saludo = ( { nombre, apellido, edad } ) => {
     // const { nombre, apellido, edad } = props ;  //desestructuring del objeto props
     
     return (
         <>
-            <NavBar />
+            
             <p>Bienvenido Sr(a). { nombre } { apellido } y su edad es { edad } </p>
         </>
     )

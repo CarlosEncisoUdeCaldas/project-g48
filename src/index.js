@@ -9,14 +9,17 @@ import {
 } from 'react-router-dom'
 import Saludo from './components/Saludo/Saludo';
 import Contador from './components/Contador/Contador';
+import Home from './Home';
 
 
 //aqui es donde viene la declaracion del array tipo objetos que va almacenar las rutas de la aplicacion
 const router = createBrowserRouter ( 
     createRoutesFromElements ( [
-        <Route path="/" element={ <IndexApp />  } />,      //esta es la posicion 0 del array router    
-        <Route path="/saludo" element={ <Saludo />  } />,          //posicion 1 del array router
-        <Route path="/contador" element={ <Contador />  } />,          //posicion 2 del array router
+        <Route path="/" element={ <IndexApp />  } >      
+            <Route path="/saludo" element={ <Saludo />  } />,   
+            <Route path="/contador" element={ <Contador />  } />,
+            <Route index element={ <Home /> } />
+        </Route>        
     ])
 )
 

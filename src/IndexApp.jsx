@@ -1,16 +1,23 @@
-import Contador from "./components/Contador/Contador";
 import "./IndexApp.css";
-import Saludo from "./components/Saludo/Saludo";
 import NavBar from "./components/NavBar/NavBar";
+import { Outlet } from "react-router-dom";
 
 const IndexApp = () => {
   //en este espacio antes del return se puede declarar todo tipo de dato o funciones JavaScript y usarlas
   // dentro del return
-  const titulo = "React";
+  // const titulo = "React";
 
   return (
     <>
+      <header>
         <NavBar />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+
+      </footer>
     </>
   );
 };

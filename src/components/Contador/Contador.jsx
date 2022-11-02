@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import NavBar from "../NavBar/NavBar";
 
 const Contador = ({ value }) => {
   //creando nuestro primer useState
@@ -26,7 +25,7 @@ const Contador = ({ value }) => {
 
   return (
     <>
-      <NavBar />
+      
       <h1>Contador</h1>
       <p> {contadora} </p>
       <button className="btn btn-primary" type="button" name="adicionar" id="adicionar" onClick={handleAdd}>

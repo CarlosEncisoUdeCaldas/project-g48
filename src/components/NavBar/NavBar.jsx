@@ -1,5 +1,4 @@
-import Contador from "../Contador/Contador";
-import Saludo from "../Saludo/Saludo";
+
 
 const NavBar = () => {
   return (
@@ -8,7 +7,7 @@ const NavBar = () => {
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href = '/saludo' >
+              <a className="nav-link" href = '/' >
                 <i className="bi bi-house" style={{ margin: '5px' }}></i>
                 Home
               </a>  
@@ -20,8 +19,8 @@ const NavBar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                Link
+              <a className="nav-link" href="/saludo">
+                Saludo
               </a>
             </li>
           </ul>
