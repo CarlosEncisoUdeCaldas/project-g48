@@ -5,7 +5,6 @@ const Saludo = ( { nombre, apellido, edad } ) => {
     
     return (
         <>
-            
             <p>Bienvenido Sr(a). { nombre } { apellido } y su edad es { edad } </p>
         </>
     )

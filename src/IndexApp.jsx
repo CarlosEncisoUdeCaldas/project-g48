@@ -16,7 +16,7 @@ const IndexApp = () => {
         <Outlet />
       </main>
       <footer>
-
+        
       </footer>
     </>
   );
