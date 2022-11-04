@@ -4,13 +4,24 @@ import { useState } from "react";
 const RegisterForm = () => {
   //lo primero que debemos hacer para controlar un input es crear un useState
   const [ firstname , setFirstName ] = useState('');
+  const [ lastname , setLastName ] = useState('');
+  const [ email , setEmail ] = useState('');
 
   //funciones manejadoras de los inputs
   const handleFirstName = ( e ) => {
-    // console.log(e.target.value);
     setFirstName( e.target.value )
-    console.log(firstname);
+    console.log( firstname );
   };
+
+  const handleLastName = ( e ) => {
+   setLastName( e.target.value )
+   console.log( lastname );
+  }
+
+  const handleEmail = ( { target } ) => {
+    setEmail( target.value )
+    console.log( email );
+  }
 
   return (
     <>
@@ -29,7 +40,35 @@ const RegisterForm = () => {
             onChange = { handleFirstName }
           />
         </div>
-        <button className='btn btn-outline-primary' onClick={ () => console.log(firstname) }>Console.log</button>
+        <div className="mb-3">
+          <label htmlFor="" className="form-label">
+            Last Name:
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="lastname"
+            name="lastname"
+            placeholder="Type your Last Name"
+            value = { lastname }
+            onChange = { handleLastName }
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="" className="form-label">
+            Email:
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            name="email"
+            placeholder="example@email.com"
+            value = { email }
+            onChange = { handleEmail }
+          />
+        </div>
+        <button className='btn btn-outline-primary' onClick={ () => console.log( `${firstname} - ${lastname} - ${email}` ) }>Console.log</button>
       </div>
     </>
   );
