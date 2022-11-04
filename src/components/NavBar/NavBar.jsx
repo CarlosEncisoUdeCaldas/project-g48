@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import NavItems from "./NavItems";
 
 const NavBar = () => {
   
@@ -10,50 +11,24 @@ const NavBar = () => {
     {to:'/saludo', icon: 'bi bi-hand-thumbs-up', title: 'Saludo'},
     {to:'/contactenos', icon: 'bi bi-person-lines-fill', title: 'Contactenos'},
   ]
+  
+  const navRegistro = [
+    {to:'/register', icon: 'bi bi-box-arrow-right', title: 'Register'},
+    {to:'/login', icon: 'bi bi-person', title: 'Login'}, 
+  ]
 
   return (
     <>
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
         <div className="container-fluid">
           <ul className="navbar-nav">
-
             {/* vamos a usar la funcion map para renderizar los elementos <li> */}
-            { navItems.map( ( { to, icon, title } ) => { 
-                return (
-                  <li className="nav-item" key={ to }>
-                    <Link className="nav-link" to={to}>
-                      <i className={icon} />
-                      {title}
-                    </Link>
-                  </li>
-                )
-            }) }
-
-            {/* lo que hace la funcion map es esto mismo en pocas lineas de codigo */}
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="/">
-                <i className="bi bi-house" />
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contador">
-                <i className="bi bi-plus-slash-minus"></i>
-                Contador
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/saludo">
-                <i className="bi bi-hand-thumbs-up" />
-                Saludo
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contactenos">
-                <i className="bi bi-person-lines-fill" />
-                Contactenos
-              </Link>
-            </li> */}
+            <NavItems navItems = { navItems } /> 
+          </ul>
+        </div>
+        <div className="container-fluid" style={ { justifyContent: 'end' } }>
+          <ul className="navbar-nav">
+            <NavItems navItems = { navRegistro } />
           </ul>
         </div>
       </nav>

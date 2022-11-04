@@ -23,3 +23,16 @@ main {
 i {
     margin: 5px;
 }
+
+.card-input{
+    margin-left: 250px;
+    margin-right: 250px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}

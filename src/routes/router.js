@@ -8,6 +8,9 @@ import {
     Route,
     createRoutesFromElements
 } from 'react-router-dom'
+import RegisterForm from '../components/RegisterForm/RegisterForm'
+import LoginForm from '../components/LoginForm/LoginForm'
+
 
 //aqui es donde viene la declaracion del array tipo objetos que va almacenar las rutas de la aplicacion
 export const router = createBrowserRouter ( 
@@ -16,7 +19,9 @@ export const router = createBrowserRouter (
             <Route index element={ <Home /> } />,
             <Route path="/saludo" element={ <Saludo />  } />,   
             <Route path="/contador" element={ <Contador />  } />,
-            <Route path='/contactenos' element={ <ContactenosPage /> } />
+            <Route path='/contactenos' element={ <ContactenosPage /> } />,
+            <Route path='/register' element={ <RegisterForm /> } />,
+            <Route path='/login' element={ <LoginForm /> } />,
         </Route>        
     ])
 )
