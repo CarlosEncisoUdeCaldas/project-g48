@@ -2,37 +2,50 @@ import React from "react";
 import { useState } from "react";
 
 const RegisterForm = () => {
+  //lo primero que debemos hacer para controlar un input es crear un useState
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+
   //este seria el useState que controle todos los inputs del formulario
-  const [inputs, setInputs] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-  });
+  const [ inputs, setInputs ] = useState( {
+    firstname:'',
+    lastname:'',
+    email:''
+  } );
 
-  //funcion manejadora de todos los inputs
-  const handleInputs = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-    console.log(inputs);
+//funcion manejadora de todos los inputs
+const handleInputs = () => {
+    // ToDo.....
+}
+
+  //funciones manejadoras de los inputs
+  const handleFirstName = (e) => {
+    setFirstName(e.target.value);
+    console.log(firstname);
   };
 
-  //funcion que maneja el submit del formulario
-  const handleOnSubmit = (e) => {
+  const handleLastName = (e) => {
+    setLastName(e.target.value);
+    console.log(lastname);
+  };
+
+  const handleEmail = ({ target }) => {
+    setEmail(target.value);
+    console.log(email);
+  };
+
+
+  const handleOnSubmit = ( e ) => {
     e.preventDefault();
-    alert(JSON.stringify(inputs));
-
-    //ToDo: envio de datos a la BD ....
-
-    //este proceso es para dejar limpio el formulario
-    setInputs({
-      firstname: "",
-      lastname: "",
-      email: "",
-    });
-  };
+    alert(`Usuario creado con exito`)
+    
+  }
+  
 
   return (
     <>
-      <form action="" onSubmit={handleOnSubmit}>
+      <form action="" onSubmit={ handleOnSubmit }>
         <div className="card card-input">
           <div className="mb-3">
             <label htmlFor="" className="form-label">
@@ -44,8 +57,8 @@ const RegisterForm = () => {
               id="firstname"
               name="firstname"
               placeholder="Type your First Name"
-              value={inputs.firstname}
-              onChange={handleInputs}
+              value={firstname}
+              onChange={handleFirstName}
             />
           </div>
           <div className="mb-3">
@@ -58,8 +71,9 @@ const RegisterForm = () => {
               id="lastname"
               name="lastname"
               placeholder="Type your Last Name"
-              value={inputs.lastname}
-              onChange={handleInputs}
+              value={lastname}
+              onChange={handleLastName}
+              required
             />
           </div>
           <div className="mb-3">
@@ -72,11 +86,15 @@ const RegisterForm = () => {
               id="email"
               name="email"
               placeholder="example@email.com"
-              value={inputs.email}
-              onChange={handleInputs}
+              value={email}
+              onChange={handleEmail}
+              required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+          >
             Submit
           </button>
         </div>
