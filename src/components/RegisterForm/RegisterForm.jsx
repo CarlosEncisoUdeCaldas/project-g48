@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import InputRegister from "./InputRegister";
 
 const RegisterForm = () => {
   //este seria el useState que controle todos los inputs del formulario
@@ -7,11 +8,16 @@ const RegisterForm = () => {
     firstname: "",
     lastname: "",
     email: "",
+    telefono: "",
+    password: "",
   });
+
+  //desestructurando a inputs
+  const { firstname, lastname, email, password, telefono } = inputs
 
   //funcion manejadora de todos los inputs
   const handleInputs = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
+    setInputs( { ...inputs, [e.target.name]: e.target.value } );
     console.log(inputs);
   };
 
@@ -20,13 +26,15 @@ const RegisterForm = () => {
     e.preventDefault();
     alert(JSON.stringify(inputs));
 
-    //ToDo: envio de datos a la BD ....
+    //TaskToDo: envio de datos a el server ....
 
     //este proceso es para dejar limpio el formulario
     setInputs({
       firstname: "",
       lastname: "",
       email: "",
+      password: "",
+      telefono:""
     });
   };
 
@@ -34,48 +42,11 @@ const RegisterForm = () => {
     <>
       <form action="" onSubmit={handleOnSubmit}>
         <div className="card card-input">
-          <div className="mb-3">
-            <label htmlFor="" className="form-label">
-              First Name:
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="firstname"
-              name="firstname"
-              placeholder="Type your First Name"
-              value={inputs.firstname}
-              onChange={handleInputs}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="" className="form-label">
-              Last Name:
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="lastname"
-              name="lastname"
-              placeholder="Type your Last Name"
-              value={inputs.lastname}
-              onChange={handleInputs}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="" className="form-label">
-              Email:
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              placeholder="example@email.com"
-              value={inputs.email}
-              onChange={handleInputs}
-            />
-          </div>
+          <InputRegister title='First Name:' type='text' name='firstname' value={firstname} handle={handleInputs} />
+          <InputRegister title='Last Name:' type='text' name='lastname' value={lastname} handle={handleInputs} />
+          <InputRegister title='Email:' type='email' name='email' value={email} handle={handleInputs} />
+          <InputRegister title='Telefono:' type='number' name='telefono' value={telefono} handle={handleInputs} />
+          <InputRegister title='Password:' type='password' name='password' value={password} handle={handleInputs} />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
