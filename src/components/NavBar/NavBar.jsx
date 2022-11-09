@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import NavItems from "./NavItems";
 
 const NavBar = () => {
