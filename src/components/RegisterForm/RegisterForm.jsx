@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { userSignUp } from "../../api";
 import InputRegister from "./InputRegister";
 
 const RegisterForm = () => {
@@ -8,34 +9,48 @@ const RegisterForm = () => {
     firstname: "",
     lastname: "",
     email: "",
-    telefono: "",
     password: "",
   });
 
   //desestructurando a inputs
-  const { firstname, lastname, email, password, telefono } = inputs
+  const { firstname, lastname, email, password } = inputs
 
   //funcion manejadora de todos los inputs
   const handleInputs = (e) => {
     setInputs( { ...inputs, [e.target.name]: e.target.value } );
-    console.log(inputs);
   };
 
   //funcion que maneja el submit del formulario
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    alert(JSON.stringify(inputs));
+    if(!firstname){
+      alert('Firstname is required')
+    }else if(!lastname){
+      alert('Lastname is required')
+    }else if(!email){
+      alert('Email is required')
+    }else if(!password){
+      alert('Password is required')
+    }else{
+      const result = await userSignUp(inputs)
+      alert(result.message)
+      if(result.status === 200) {
+        setInputs({
+          firstname: "",
+          lastname: "",
+          email: "",
+          password: "",
+        });
+        //retornar al index
+        window.location.href = '/'
+        // setTimeout(() => {
+        // }, 600);
+      }
 
+    }
     //TaskToDo: envio de datos a el server ....
 
     //este proceso es para dejar limpio el formulario
-    setInputs({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-      telefono:""
-    });
   };
 
   return (
@@ -45,7 +60,6 @@ const RegisterForm = () => {
           <InputRegister title='First Name:' type='text' name='firstname' value={firstname} handle={handleInputs} />
           <InputRegister title='Last Name:' type='text' name='lastname' value={lastname} handle={handleInputs} />
           <InputRegister title='Email:' type='email' name='email' value={email} handle={handleInputs} />
-          <InputRegister title='Telefono:' type='number' name='telefono' value={telefono} handle={handleInputs} />
           <InputRegister title='Password:' type='password' name='password' value={password} handle={handleInputs} />
           <button type="submit" className="btn btn-primary">
             Submit
