@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { userSignUp } from "../../api";
 import InputRegister from "./InputRegister";
+import Swal from 'sweetalert2'
 
 const RegisterForm = () => {
   //este seria el useState que controle todos los inputs del formulario
@@ -23,17 +24,24 @@ const RegisterForm = () => {
   //funcion que maneja el submit del formulario
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    if(!firstname){
-      alert('Firstname is required')
-    }else if(!lastname){
-      alert('Lastname is required')
-    }else if(!email){
-      alert('Email is required')
-    }else if(!password){
-      alert('Password is required')
+    if(!firstname || !lastname || !email || !password){
+      // alert('Firstname is required')
+      Swal.fire(
+        'Error',
+        'All inputs are required',
+        'error'
+      )
     }else{
       const result = await userSignUp(inputs)
-      alert(result.message)
+      Swal.fire(
+        'Success',
+        'All inputs are required',
+        'success'
+      ).then((result) => {
+        if(result.isConfirmed){
+          window.location.href = '/'
+        }
+      })
       if(result.status === 200) {
         setInputs({
           firstname: "",
@@ -42,7 +50,6 @@ const RegisterForm = () => {
           password: "",
         });
         //retornar al index
-        window.location.href = '/'
         // setTimeout(() => {
         // }, 600);
       }

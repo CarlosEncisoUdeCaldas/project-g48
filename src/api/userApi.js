@@ -1,6 +1,7 @@
 // import { base_url, api_version } from "../constants/urlConstants"
 import { base_url, api_version } from "../constants";
 
+//api para crear un usuario
 export const userSignUp = (data) => {
   const url = `${base_url}/${api_version}/createUser`;
   const params = {
@@ -23,3 +24,8 @@ export const userSignUp = (data) => {
     })
     .catch((err) => console.log(err.message));
 };
+
+//Api para loguear usuario
+export const userSignIn= () => {
+  // ToDo... instrucciones para loguear un usuario
+}
