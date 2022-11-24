@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";                                //icons
+import 'primeflex/primeflex.css';
 
 const IndexApp = () => {
   //en este espacio antes del return se puede declarar todo tipo de dato o funciones JavaScript y usarlas

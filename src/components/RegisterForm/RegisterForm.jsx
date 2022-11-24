@@ -3,6 +3,7 @@ import { useState } from "react";
 import { userSignUp } from "../../api";
 import InputRegister from "./InputRegister";
 import Swal from 'sweetalert2'
+import { Button } from "primereact/button";
 
 const RegisterForm = () => {
   //este seria el useState que controle todos los inputs del formulario
@@ -68,9 +69,7 @@ const RegisterForm = () => {
           <InputRegister title='Last Name:' type='text' name='lastname' value={lastname} handle={handleInputs} />
           <InputRegister title='Email:' type='email' name='email' value={email} handle={handleInputs} />
           <InputRegister title='Password:' type='password' name='password' value={password} handle={handleInputs} />
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
+          <Button type="submit" className="" label="Submit" />
         </div>
       </form>
     </>
